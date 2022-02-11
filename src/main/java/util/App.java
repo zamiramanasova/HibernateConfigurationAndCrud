@@ -15,7 +15,7 @@ public class App {
 
         HibernateUtil.getSession();
 
-        Employee employee = new Employee("Зара","Томова","товаровед", 21);
+        Employee employee = new Employee("Аза","Бариков","бармен", 26);
 
         //create(employee);
 
@@ -63,7 +63,7 @@ public class App {
     }
     // Вывод работника Аза и работников страше 20 лет
     public static void update(int age,String name) {
-        String sql = "FROM Employee WHERE age >:age or name =:name";
+        String sql = "FROM Employee WHERE age >:age and name =:name";
         Session session = HibernateUtil.getSession().openSession();
         session.beginTransaction();
         Query<Employee> query = session.createQuery(sql)
